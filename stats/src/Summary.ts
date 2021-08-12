@@ -1,4 +1,6 @@
 import { MatchData } from './MatchData';
+import { WinsAnalysis } from './analyzers/WindsAnalysis';
+import { ConsoleReport } from './reportTargets/ConsoleReport';
 
 export interface Analyzer {
   run(matches: MatchData[]): string;
@@ -9,6 +11,10 @@ export interface OutputTarget {
 }
 
 export class Summary {
+  static winsAnalysisWithConsoleReport(team: string) {
+    return new Summary(new WinsAnalysis(team), new ConsoleReport());
+  }
+
   constructor(public analyzer: Analyzer, public outputTarget: OutputTarget) {}
 
   buildAndPrintReport(matches: MatchData[]): void {
