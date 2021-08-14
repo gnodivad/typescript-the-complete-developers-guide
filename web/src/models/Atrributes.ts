@@ -1,8 +1,8 @@
 export class Attributes<T> {
   constructor(private data: T) {}
 
-  get(propName: string): string | number {
-    return this.data[propName];
+  get(key: string): string | number {
+    return this.data[key];
   }
 
   set(update: T): void {
