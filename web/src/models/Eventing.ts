@@ -1,6 +1,6 @@
 type Callback = () => void;
 
-export class eventing {
+export class Eventing {
   events: { [key: string]: Callback[] } = {};
 
   on(eventName: string, callback: Callback) {
